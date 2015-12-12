@@ -64,8 +64,33 @@ namespace Cookbook.Database
         private void AddRecipies(DBContext context)
         {
             var recipies = new Recipe[] {
-
+                new Recipe() {
+                    Title = "Przepis 1",
+                    Steps = new List<Step>() {
+                            new Step() {StepNo = 1, Content = "Lorem ipsum dolor sit amet"},
+                            new Step() {StepNo = 2, Content = "Ipsum loret dolor"}
+                        },
+                    Ingredients = new List<RecipeIngredient>() {
+                        new RecipeIngredient() { 
+                            Ingredient = context.Ingredients.Where(x => x.Name == "jajko").First(),
+                            Quantity = 5,
+                            Unit = "sztuk"
+                            },
+                        new RecipeIngredient() { 
+                            Ingredient = context.Ingredients.Where(x => x.Name == "mleko").First(),
+                            Quantity = 1,
+                            Unit = "litr"
+                            },
+                        new RecipeIngredient() { 
+                            Ingredient = context.Ingredients.Where(x => x.Name == "mąka").First(),
+                            Quantity = 2,
+                            Unit = "kg"
+                            },
+                        }
+                }
             };
+            
+            context.Recipies.AddOrUpdate(x => x.Title, recipies);
         }
     }
 
