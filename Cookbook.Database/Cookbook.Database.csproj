@@ -52,24 +52,24 @@
     <Compile Include="DBContext.cs" />
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\Ingredient.cs" />
+    <Compile Include="Entity\RecipeIngredient.cs" />
     <Compile Include="Entity\Recipe.cs" />
     <Compile Include="Entity\Step.cs" />
-    <Compile Include="Migrations\201512121626415_initial_migration.cs" />
-    <Compile Include="Migrations\201512121626415_initial_migration.Designer.cs">
-      <DependentUpon>201512121626415_initial_migration.cs</DependentUpon>
+    <Compile Include="Interface\IEntity.cs" />
+    <Compile Include="Migrations\201512121711321_initial_migration.cs" />
+    <Compile Include="Migrations\201512121711321_initial_migration.Designer.cs">
+      <DependentUpon>201512121711321_initial_migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512121626415_initial_migration.resx">
-      <DependentUpon>201512121626415_initial_migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512121711321_initial_migration.resx">
+      <DependentUpon>201512121711321_initial_migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

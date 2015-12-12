@@ -209,7 +209,16 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Cookbook.Database\Cookbook.Database.csproj">
+      <Project>{3ed86655-1f8c-489b-8d29-0a7e729a438f}</Project>
+      <Name>Cookbook.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cookbook.Services\Cookbook.Services.csproj">
+      <Project>{4667247f-e2bf-40a5-8c03-9e9ed8391302}</Project>
+      <Name>Cookbook.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

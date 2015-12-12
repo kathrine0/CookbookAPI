@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cookbook.Services
+namespace Cookbook.Database.Interface
 {
-    public class Class1
+    interface IEntity
     {
+        int Id { get; set; }
     }
 }
