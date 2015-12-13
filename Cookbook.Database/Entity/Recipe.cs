@@ -17,6 +17,7 @@ namespace Cookbook.Database.Entity
 
         public int Id { get; set; }
         public string Title { get; set; }
+        public string ImageUrl { get; set; }
         public IList<Step> Steps { get; set; }
         public IList<Category> Categories { get; set; }
         public IList<RecipeIngredient> Ingredients { get; set; }

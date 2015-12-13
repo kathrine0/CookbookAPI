@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Cookbook.Database
 {
-    class DBContext : DbContext
+    public class DBContext : DbContext
     {
         public DBContext()
             :base("CookbookConnectionString")
