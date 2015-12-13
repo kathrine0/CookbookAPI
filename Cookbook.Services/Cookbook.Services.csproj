@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutomapperConfig.cs" />
+    <Compile Include="Services\RecipeService.cs" />
     <Compile Include="Services\IngredientService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />

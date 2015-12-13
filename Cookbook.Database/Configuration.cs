@@ -20,7 +20,7 @@ namespace Cookbook.Database
         {
             AddIngredients(context);
             AddCategories(context);
-            AddRecipies(context);
+            AddRecipes(context);
         }
 
 
@@ -61,7 +61,7 @@ namespace Cookbook.Database
             context.Categories.AddOrUpdate(x => x.Name, categories);
         }
 
-        private void AddRecipies(DBContext context)
+        private void AddRecipes(DBContext context)
         {
             var recipies = new Recipe[] {
                 new Recipe() {
@@ -90,7 +90,7 @@ namespace Cookbook.Database
                 }
             };
             
-            context.Recipies.AddOrUpdate(x => x.Title, recipies);
+            context.Recipes.AddOrUpdate(x => x.Title, recipies);
         }
     }
 
