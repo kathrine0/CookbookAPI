@@ -92,5 +92,10 @@ namespace Cookbook.Controllers
         {
             return _service.GetRecipesByCategory(categoryId);
         }
+
+        public IList<RecipeDTO> GetRecipesBySearchString(string search)
+        {
+            return _service.GetRecipesBySearchString(search);
+        }
     }
 }

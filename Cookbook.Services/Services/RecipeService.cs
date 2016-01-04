@@ -3,6 +3,7 @@ using Cookbook.Database;
 using Cookbook.Database.Entity;
 using Cookbook.Services.DTO;
 using System;
+using System.Web;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -95,6 +96,33 @@ namespace Cookbook.Services.Services
                 db.Recipes
                 .Include(x => x.Categories)
                 .Where(x => x.Categories.Any(y => y.Id == categoryId))
+                .ToList());
+        }
+
+        public IList<RecipeDTO> GetRecipesBySearchString(string query)
+        {
+            if (String.IsNullOrEmpty(query))
+            {
+                return Mapper.Map<IList<RecipeDTO>>(db.Recipes.Include(x => x.Categories).ToList());
+            }
+
+            query = query.Replace("%20", " ");
+            
+            IList<string> searchPhrases = query.Split(',').ToList();
+
+            for (var i = 0; i<searchPhrases.Count; i++)
+            {
+                searchPhrases[i] = searchPhrases[i].RemoveDiacritics()
+                                                   .RemoveSpecialCharacters()
+                                                   .ToLower();
+            }
+
+            return Mapper.Map<IList<RecipeDTO>>(
+                db.Recipes
+                .Include(x => x.Categories)
+                .Where(x => x.Ingredients.Any(y =>
+                            searchPhrases.Any(z => y.Ingredient.Name.Contains(z))) ||
+                            searchPhrases.Any(z => x.Title.Contains(z)))
                 .ToList());
         }
     }
