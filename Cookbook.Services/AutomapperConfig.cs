@@ -19,6 +19,10 @@ namespace Cookbook.Services
             Mapper.CreateMap<Category, int>()
                 .ConstructUsing(source => source.Id);
 
+            Mapper.CreateMap<Ingredient, int>()
+                .ConstructUsing(source => source.Id);
+            
+
             Mapper.CreateMap<Ingredient, IngredientDTO>();
             Mapper.CreateMap<IngredientDTO, Ingredient>();
 
@@ -29,6 +33,9 @@ namespace Cookbook.Services
 
             Mapper.CreateMap<RecipeIngredient, RecipeIngredientDTO>();
             Mapper.CreateMap<RecipeIngredientDTO, RecipeIngredient>();
+            Mapper.CreateMap<PostRecipeIngredientDTO, RecipeIngredient>()
+                .ForMember(dst => dst.IngredientId, opt => opt.MapFrom(dst => dst.IngredientId))
+                .ForMember(dst => dst.Ingredient, opt => opt.Ignore());
 
             Mapper.CreateMap<Step, StepDTO>();
             Mapper.CreateMap<StepDTO, Step>();

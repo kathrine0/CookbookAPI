@@ -9,11 +9,13 @@ namespace Cookbook.Services.DTO
     public class RecipeDTO : BaseRecipeDTO
     {
         public IList<CategoryDTO> Categories { get; set; }
+        public IList<RecipeIngredientDTO> Ingredients { get; set; }
     }
 
     public class PostRecipeDTO : BaseRecipeDTO
     {
         public IList<int> Categories { get; set; }
+        public IList<PostRecipeIngredientDTO> Ingredients { get; set; }
     }
 
     public abstract class BaseRecipeDTO
@@ -23,6 +25,5 @@ namespace Cookbook.Services.DTO
         public string ImageUrl { get; set; }
         public string Description { get; set; }
         public IList<StepDTO> Steps { get; set; }
-        public IList<RecipeIngredientDTO> Ingredients { get; set; }
     }
 }
