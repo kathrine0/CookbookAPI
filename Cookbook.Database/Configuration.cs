@@ -89,7 +89,7 @@ namespace Cookbook.Database
                         }
                 }
             };
-            
+
             context.Recipes.AddOrUpdate(x => x.Title, recipies);
         }
     }

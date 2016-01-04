@@ -56,10 +56,15 @@ namespace Cookbook.Services.Services
             }
         }
 
-        public void PostRecipe(RecipeDTO recipe)
+        public RecipeDTO PostRecipe(RecipeDTO recipeDto)
         {
-            db.Recipes.Add(Mapper.Map<Recipe>(recipe));
+            var recipe = Mapper.Map<Recipe>(recipeDto);
+            db.Recipes.Add(recipe);
             db.SaveChanges();
+
+            db.Entry(recipe).GetDatabaseValues();
+
+            return Mapper.Map<RecipeDTO>(recipe);
         }
 
         public void DeleteRecipe(int id)

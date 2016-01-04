@@ -68,9 +68,9 @@ namespace Cookbook.Controllers
                 return BadRequest(ModelState);
             }
 
-            _service.PostRecipe(recipe);
+            var savedRecipe = _service.PostRecipe(recipe);
 
-            return CreatedAtRoute("DefaultApi", new { id = recipe.Id }, recipe);
+            return CreatedAtRoute("DefaultApi", new { id = savedRecipe.Id }, savedRecipe);
         }
 
         [ResponseType(typeof(void))]

@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201512131450056_ImageForRecipe.Designer.cs">
       <DependentUpon>201512131450056_ImageForRecipe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601041121451_DescriptionForRecipe.cs" />
+    <Compile Include="Migrations\201601041121451_DescriptionForRecipe.Designer.cs">
+      <DependentUpon>201601041121451_DescriptionForRecipe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -77,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512131450056_ImageForRecipe.resx">
       <DependentUpon>201512131450056_ImageForRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601041121451_DescriptionForRecipe.resx">
+      <DependentUpon>201601041121451_DescriptionForRecipe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
