@@ -21,5 +21,14 @@ namespace Cookbook.Database
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Step> Steps { get; set; }
         public DbSet<RecipeIngredient> RecipeIngredients { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Recipe>()
+                .HasMany<Category>(s => s.Categories)
+                .WithMany(c => c.Recipes);
+        }
     }
 }

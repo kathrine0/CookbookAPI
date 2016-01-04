@@ -60,8 +60,8 @@ namespace Cookbook.Controllers
         }
 
         // POST: api/Recipes
-        [ResponseType(typeof(RecipeDTO))]
-        public IHttpActionResult PostRecipe(RecipeDTO recipe)
+        [ResponseType(typeof(PostRecipeDTO))]
+        public IHttpActionResult PostRecipe(PostRecipeDTO recipe)
         {
             if (!ModelState.IsValid)
             {

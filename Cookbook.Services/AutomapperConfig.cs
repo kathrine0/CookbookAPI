@@ -16,11 +16,16 @@ namespace Cookbook.Services
             Mapper.CreateMap<Category, CategoryDTO>();
             Mapper.CreateMap<CategoryDTO, Category>();
 
+            Mapper.CreateMap<Category, int>()
+                .ConstructUsing(source => source.Id);
+
             Mapper.CreateMap<Ingredient, IngredientDTO>();
             Mapper.CreateMap<IngredientDTO, Ingredient>();
 
             Mapper.CreateMap<Recipe, RecipeDTO>();
             Mapper.CreateMap<RecipeDTO, Recipe>();
+            Mapper.CreateMap<PostRecipeDTO, Recipe>()
+                .ForMember(dst => dst.Categories, opt => opt.Ignore());
 
             Mapper.CreateMap<RecipeIngredient, RecipeIngredientDTO>();
             Mapper.CreateMap<RecipeIngredientDTO, RecipeIngredient>();

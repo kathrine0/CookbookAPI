@@ -19,12 +19,12 @@ namespace Cookbook.Services.Services
 
         public IList<RecipeDTO> GetRecipes()
         {
-            return Mapper.Map<IList<RecipeDTO>>(db.Recipes.ToList());
+            return Mapper.Map<IList<RecipeDTO>>(db.Recipes.Include(x => x.Categories).ToList());
         }
 
         public RecipeDTO GetRecipe(int id)
         {
-            Recipe recipe = db.Recipes.Find(id);
+            Recipe recipe = db.Recipes.Include(x => x.Categories).FirstOrDefault(x => x.Id == id);
             if (recipe == null)
             {
                 throw new ItemNotFoundException();
@@ -56,9 +56,13 @@ namespace Cookbook.Services.Services
             }
         }
 
-        public RecipeDTO PostRecipe(RecipeDTO recipeDto)
+        public RecipeDTO PostRecipe(PostRecipeDTO recipeDto)
         {
             var recipe = Mapper.Map<Recipe>(recipeDto);
+
+            var categories = db.Categories.Where(x => recipeDto.Categories.Contains(x.Id)).ToList();
+            recipe.Categories = categories;
+
             db.Recipes.Add(recipe);
             db.SaveChanges();
 
