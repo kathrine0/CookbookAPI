@@ -87,5 +87,10 @@ namespace Cookbook.Controllers
 
             return Ok();
         }
+
+        public IList<RecipeDTO> GetRecipesByCategory(int categoryId)
+        {
+            return _service.GetRecipesByCategory(categoryId);
+        }
     }
 }

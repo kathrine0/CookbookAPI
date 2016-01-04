@@ -88,5 +88,14 @@ namespace Cookbook.Services.Services
         {
             return db.Recipes.Count(e => e.Id == id) > 0;
         }
+
+        public IList<RecipeDTO> GetRecipesByCategory(int categoryId)
+        {
+            return Mapper.Map<IList<RecipeDTO>>(
+                db.Recipes
+                .Include(x => x.Categories)
+                .Where(x => x.Categories.Any(y => y.Id == categoryId))
+                .ToList());
+        }
     }
 }
