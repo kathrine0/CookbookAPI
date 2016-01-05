@@ -12,7 +12,7 @@ namespace Cookbook.Database.Entity
         public int Id { get; set; }
         public int IngredientId { get; set; }
         public virtual Ingredient Ingredient { get; set; }
-        public int Quantity {get; set; }
+        public float Quantity {get; set; }
         public string Unit { get; set; }
     }
 }
