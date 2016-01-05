@@ -27,6 +27,11 @@ namespace Cookbook.Database
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Recipe>()
+                .HasMany<Step>(s => s.Steps)
+                .WithRequired()
+                .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<Recipe>()
                 .HasMany<Category>(s => s.Categories)
                 .WithMany(c => c.Recipes);
         }

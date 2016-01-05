@@ -19,7 +19,11 @@ namespace Cookbook.Services.Services
 
         public IList<IngredientDTO> GetIngredients()
         {
-            return Mapper.Map<IList<IngredientDTO>>(db.Ingredients.ToList());
+            var ingredients = db.Ingredients
+                .OrderBy(x => x.Name)
+                .ToList();
+
+            return Mapper.Map<IList<IngredientDTO>>(ingredients);
         }
 
         public IngredientDTO GetIngredient(int id)

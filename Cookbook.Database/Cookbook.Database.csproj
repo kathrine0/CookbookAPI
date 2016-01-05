@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201601051648036_QuantityIsAFloat.Designer.cs">
       <DependentUpon>201601051648036_QuantityIsAFloat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601051704083_CascadeStepsOnDelete.cs" />
+    <Compile Include="Migrations\201601051704083_CascadeStepsOnDelete.Designer.cs">
+      <DependentUpon>201601051704083_CascadeStepsOnDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -98,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601051648036_QuantityIsAFloat.resx">
       <DependentUpon>201601051648036_QuantityIsAFloat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601051704083_CascadeStepsOnDelete.resx">
+      <DependentUpon>201601051704083_CascadeStepsOnDelete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

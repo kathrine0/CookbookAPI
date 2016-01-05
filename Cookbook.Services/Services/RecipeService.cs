@@ -20,7 +20,12 @@ namespace Cookbook.Services.Services
 
         public IList<RecipeDTO> GetRecipes()
         {
-            return Mapper.Map<IList<RecipeDTO>>(db.Recipes.Include(x => x.Categories).ToList());
+            var recipes = db.Recipes
+                .Include(x => x.Categories)
+                .OrderBy(x => x.Title)
+                .ToList();
+
+            return Mapper.Map<IList<RecipeDTO>>(recipes);
         }
 
         public RecipeDTO GetRecipe(int id)
